@@ -60,8 +60,9 @@ end
     end
   end
 
+
+     #prints all genres in the music library in a numbered list (alphabetized by genre name)
      def list_genres
-    #prints all genres in the music library in a numbered list (alphabetized by genre name)
     songs_sorted_by_genre = Genre.all.sort_by do |genre|
       genre.name
     end
@@ -73,12 +74,11 @@ end
    def list_songs_by_artist 
     puts "Please enter the name of an artist:"
     input = gets.chomp
-     if artist = Artist.find_by_name(input) #find artist that matches input
+     if artist = Artist.find_by_name(input) #find artist that matches the input
       #get the list of songs and collect a new list that is alphabetized by song name
       songs_sorted_by_name = artist.songs.sort_by do |song|
         song.name
       end
-      #print the each item in the list
       songs_sorted_by_name.each.with_index(1) do |song,index|
         puts "#{index}. #{song.name} - #{song.genre.name}"
       end
@@ -86,15 +86,13 @@ end
   end
 
     def list_songs_by_genre
-    #prints all songs by a particular genre in a numbered list (alphabetized by song name)
     puts "Please enter the name of a genre:"
     input = gets.chomp
-    if genre = Genre.find_by_name(input) #find genre that matches input
-      #get the list of songs and collect a new list that is alphabetized by song name
+    if genre = Genre.find_by_name(input) #find genre that matches the input
       songs_sorted_by_name = genre.songs.sort_by do |song|
         song.name
       end
-      #print the each item in he list
+      #print each item in the list
       songs_sorted_by_name.each.with_index(1) do |song,index|
         puts "#{index}. #{song.artist.name} - #{song.name}"
       end
@@ -109,7 +107,6 @@ end
   end
 
    def name_extractor(filename)
-    #Returns an array, first value is artist, second is song, third is genre
     file_bits = filename.gsub(/(\.mp3)/,'')
     file_bits = file_bits.split(" - ")
   end
