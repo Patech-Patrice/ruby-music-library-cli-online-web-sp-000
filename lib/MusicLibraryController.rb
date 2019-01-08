@@ -9,11 +9,8 @@ class MusicLibraryController
     new_importer_object.import
   end
   
-  #
-  
-  
-  
-  def call
+  # call welcomes the user asks the user for input loops and asks for user input until they type in exit
+    def call
     input = ""
     while input != "exit"
       puts "Welcome to your music library!"
@@ -41,8 +38,10 @@ class MusicLibraryController
       when "play song"
         play_song
       end
-
     end
   end
+  
+  
+  
 
 end
