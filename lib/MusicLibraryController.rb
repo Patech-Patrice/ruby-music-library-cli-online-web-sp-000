@@ -97,11 +97,11 @@ class MusicLibraryController
     puts "Please enter the name of a genre:"
     input = gets.chomp
     if genre = Genre.find_by_name(input) #find genre that matches input
-      #get the list of songs and collect a new list that is alphabetized by song name
+      #gets the list of songs and collect a new list that is alphabetized by song name
       songs_sorted_by_name = genre.songs.sort_by do |song|
         song.name
       end
-      #print the each item in he list
+      #prints each item in the list
       songs_sorted_by_name.each.with_index(1) do |song,index|
         puts "#{index}. #{song.artist.name} - #{song.name}"
       end
